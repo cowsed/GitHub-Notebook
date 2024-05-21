@@ -30,11 +30,10 @@ def setup_config() -> Tuple[Configuration, Client]:
 
     conf.organization = input("Enter your GitHub Organization Name: ")
     conf.project_number = int(input(
-        f"Enter the project number you wish to use. It can probably be found on this page https://github.com/orgs/{conf.organization}/projects: "))
+        f"Enter the project number. (Check https://github.com/orgs/{conf.organization}/projects): "))
     conf.project_id = get_project_id(
         client, conf.organization, conf.project_number)
-    item = input(
-        "Is there any repository you don't want to copy the name for (General Planning repo vs. Code repo): ")
+    item = input("General Repository Name: ")
     conf.repo_name_blocklist = [item]
     return conf, client
 
